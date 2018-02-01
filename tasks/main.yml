@@ -1,2 +1,4 @@
 ---
-# tasks file for ansible-testing
+- name: install dstat
+  package:
+    name: dstat
