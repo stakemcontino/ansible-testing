@@ -1,0 +1,20 @@
+
+extends: default
+
+ignore: |
+  .travis.yml
+  /venv/
+
+rules:
+  braces:
+    max-spaces-inside: 1
+    level: error
+  brackets:
+    max-spaces-inside: 1
+    level: error
+  line-length: disable
+  truthy: disable
+  empty-lines: disable
+  comments:
+      level: error
+      require-starting-space: no
