@@ -3,8 +3,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        echo 'Setup Python VirtualEnv'
         sh 'virtualenv venv'
         sh 'source venv/bin/activate'
+        sh 'which pip'
         sh './venv/bin/pip install ansible boto3 docker molecule'
       }
     }
