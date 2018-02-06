@@ -1,1 +1,5 @@
 .vagrant
+.yamllint
+.cache
+.molecule
+__pycache__
