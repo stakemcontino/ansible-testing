@@ -1,15 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
-      steps {
-        echo 'Setup Python VirtualEnv'
-        sh 'virtualenv venv'
-        sh 'source venv/bin/activate'
-        sh 'which pip'
-        sh './venv/bin/pip install ansible boto3 docker molecule'
-      }
-    }
     stage('Prep') {
       steps {
         sh 'molecule list'
@@ -19,9 +10,9 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing...'
-        sh 'molecule create'
-        sh 'molecule converge'
-        sh 'molecule verify'
+        sh 'sudo molecule create'
+        sh 'sudo molecule converge'
+        sh 'sudo molecule verify'
       }
     }
   }
