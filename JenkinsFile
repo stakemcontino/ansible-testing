@@ -1,19 +1,22 @@
 pipeline {
   agent any
   stages {
-    stage('Prep') {
-      steps {
-        sh 'molecule list'
-        sh 'molecule lint'
-      }
+    stage ("Executing Molecule lint") {
+      sh 'molecule lint'
     }
-    stage('Test') {
-      steps {
-        echo 'Testing...'
-        sh 'sudo molecule create'
-        sh 'sudo molecule converge'
-        sh 'sudo molecule verify'
-      }
+    stage ("Executing Molecule create") {
+      sh 'molecule create'
+    }
+    stage ("Executing Molecule converge") {
+      sh 'molecule converge'
+    }
+    stage ("Executing Molecule idemotence") {
+      sh 'molecule idempotence'
+    }
+    stage ("Executing Molecule verify") {
+      sh 'molecule verify'
+      sh 'molecule list'
+      sh 'molecule destroy'
     }
   }
 }
