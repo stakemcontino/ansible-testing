@@ -1,27 +1,26 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                sh 'virtualenv venv'
-                sh 'source venv/bin/activate'
-                sh 'pip install ansible boto3 docker molecule'
-            }
-        }
-        stage('Prep') {
-            steps {
-                sh 'molecule list'
-                sh 'molecule lint'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                sh 'molecule create'
-                sh 'molecule converge'
-                sh 'molecule verify'
-            }
-        }
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        sh 'virtualenv venv'
+        sh 'source venv/bin/activate'
+        sh 'pip install ansible boto3 docker molecule'
+      }
     }
+    stage('Prep') {
+      steps {
+        sh 'molecule list'
+        sh 'molecule lint'
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Testing...'
+        sh 'molecule create'
+        sh 'molecule converge'
+        sh 'molecule verify'
+      }
+    }
+  }
 }
