@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'virtualenv venv'
         sh 'source venv/bin/activate'
-        sh 'pip install ansible boto3 docker molecule'
+        sh './venv/bin/pip install ansible boto3 docker molecule'
       }
     }
     stage('Prep') {
