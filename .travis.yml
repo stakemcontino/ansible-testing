@@ -9,7 +9,6 @@ install:
   - pip install molecule
   # - pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
 script:
-  - molecule init scenario -s default -r ansible-testing
   - molecule lint
   - molecule create
   - molecule converge
