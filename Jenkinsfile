@@ -23,6 +23,9 @@ pipeline {
         stage('Converge') {
             steps {
                 echo 'Converge playbook to docker instance...'
+                sh 'mkdir molecule/default/roles'
+                sh 'cd molecule/default/roles'
+                sh 'git clone https://github.com/stakemcontino/ansible-testing.git'
                 sh 'molecule converge'
             }
         }
