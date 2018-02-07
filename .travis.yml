@@ -6,8 +6,7 @@ services:
 before_install:
   - sudo apt-get -qq update
 install:
-  - pip install molecule
-  # - pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
+  - pip install ansible molecule 'docker<3.0.0'
 script:
   - molecule lint
   - molecule create
