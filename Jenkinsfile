@@ -26,8 +26,5 @@ pipeline {
     stage ("Executing Molecule verify") {
       sh 'molecule verify'
     }
-    } catch(all) {
-        currentBuild.result = "FAILURE"
-        throw err
-    }
+  }
 }
