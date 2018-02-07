@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/stakemcontino/ansible-testing.svg?branch=master)](https://travis-ci.org/stakemcontino/ansible-testing)
+
 Role Name
 =========
 
