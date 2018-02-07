@@ -20,5 +20,11 @@ pipeline {
                 sh 'molecule create'
             }
         }
+        stage('Converge') {
+            steps {
+                echo 'Converge playbook to docker instance...'
+                sh 'molecule converge'
+            }
+        }
     }
 }
