@@ -8,7 +8,7 @@ pipeline {
                 checkout scm
                 sh 'virtualenv venv'
                 sh 'source venv/bin/activate'
-                sh 'pip install ansible 'docker<3.0.0' molecule'
+                sh 'pip install -r requirements.txt'
                 sh 'deactivate'
             }
         }
